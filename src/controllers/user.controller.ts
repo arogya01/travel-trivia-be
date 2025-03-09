@@ -54,8 +54,9 @@ export const createUser = async (req: Request, res: Response) => {
   if (!username) {
     return res.status(400).json({ message: 'Username is required' });
   }
-  
-  if(UserService.getUserByUsername(username)) {
+  const doesUserNameExists = await UserService.getUserByUsername(username);
+  if(doesUserNameExists) {
+    console.log('found username ??');
     return res.status(409).json({ message: 'Username already exists' });
   }
   try {

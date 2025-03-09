@@ -15,9 +15,10 @@ export const getAllUsers = async () => {
  * Get a user by username
  */
 export const getUserByUsername = async (username: string) => {
-  return await prisma.user.findUnique({
+  const res =  await prisma.user.findUnique({
     where: { username }
   });
+  return res;
 };
 
 /**
