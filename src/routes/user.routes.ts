@@ -16,4 +16,7 @@ router.get('/username/:username', UserController.getUserByUsername);
 // Create a new user
 router.post('/', UserController.createUser);
 
+// Login a user
+router.post('/login', UserController.loginUser);
+
 export default router;
