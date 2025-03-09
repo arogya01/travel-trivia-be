@@ -34,9 +34,10 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-export const getUserbyUsername = async (req: Request, res: Response) => {
+export const getUserByUsername = async (req: Request, res: Response) => {
     try {
         const { username } = req.params;
+        console.log('username', username);
         const user = await UserService.getUserByUsername(username);
         return res.json(user);
     } catch (error) {

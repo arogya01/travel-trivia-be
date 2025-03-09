@@ -63,10 +63,10 @@ export const verifyAnswer = async (
   destinations: IDestination[],
   destinationId: string,
   answer: string,
-  userId?: string
+  userName?: string
 ) => {
   const destination = destinations.find(d => d.id === destinationId);
-  
+  console.log('destination', destination);
   if (!destination) {
     throw new Error('Destination not found');
   }
@@ -75,8 +75,8 @@ export const verifyAnswer = async (
   let user = null;
   
   // Update user statistics if a user ID is provided
-  if (userId) {
-    user = await UserService.updateUserStats(userId, isCorrect);
+  if (userName) {
+    user = await UserService.updateUserStats(userName, isCorrect);
   }
   
   // Get a random fact from the destination
@@ -85,6 +85,7 @@ export const verifyAnswer = async (
   return {
     isCorrect,
     fact: randomFact,
-    user
+    user, 
+    correctAnswer: destination.name
   };
 }; 

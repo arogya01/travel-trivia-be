@@ -47,9 +47,9 @@ export const createUser = async (username: string) => {
 /**
  * Update user statistics after a game
  */
-export const updateUserStats = async (userId: string, isCorrect: boolean) => {
+export const updateUserStats = async (username: string, isCorrect: boolean) => {
   return await prisma.user.update({
-    where: { id: userId },
+    where: { username },
     data: {
       gamesPlayed: { increment: 1 },
       ...(isCorrect 

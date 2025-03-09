@@ -29,7 +29,7 @@ export interface IUser {
 export interface IVerifyAnswerRequest {
   destinationId: string;
   answer: string;
-  userId?: string;
+  userName:string;
 }
 
 export interface IClue {

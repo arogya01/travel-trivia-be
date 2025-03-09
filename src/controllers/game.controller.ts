@@ -49,7 +49,7 @@ export const getRandomGame = (req: Request, res: Response) => {
  */
 export const verifyAnswer = async (req: Request, res: Response) => {
   try {
-    const { destinationId, answer, userId } = req.body as IVerifyAnswerRequest;
+    const { destinationId, answer, userName } = req.body as IVerifyAnswerRequest;
     const destinations: IDestination[] = req.app.locals.destinations || [];
     
     // Verify the answer and update user stats if needed
@@ -57,9 +57,9 @@ export const verifyAnswer = async (req: Request, res: Response) => {
       destinations,
       destinationId,
       answer,
-      userId
+      userName
     );
-    
+    console.log('result', result);
     return res.json(result);
   } catch (error) {
     if (isErrorWithMessage(error) && error.message === 'Destination not found') {
