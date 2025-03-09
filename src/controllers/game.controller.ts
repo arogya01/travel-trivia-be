@@ -2,6 +2,16 @@ import { Request, Response } from 'express';
 import { IDestination, IVerifyAnswerRequest } from '../types/destination.types';
 import * as GameService from '../services/game.service';
 
+// Type guard for errors with a message property
+function isErrorWithMessage(error: unknown): error is { message: string } {
+  return (
+    typeof error === 'object' && 
+    error !== null && 
+    'message' in error && 
+    typeof (error as any).message === 'string'
+  );
+}
+
 /**
  * Get a random destination with clues for the game
  */
@@ -52,7 +62,7 @@ export const verifyAnswer = async (req: Request, res: Response) => {
     
     return res.json(result);
   } catch (error) {
-    if (error.message === 'Destination not found') {
+    if (isErrorWithMessage(error) && error.message === 'Destination not found') {
       return res.status(404).json({ message: 'Destination not found' });
     }
     
