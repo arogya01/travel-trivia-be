@@ -34,6 +34,17 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
+export const getUserbyUsername = async (req: Request, res: Response) => {
+    try {
+        const { username } = req.params;
+        const user = await UserService.getUserByUsername(username);
+        return res.json(user);
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        return res.status(500).json({ message: 'Failed to fetch user' });
+    }
+};
+
 /**
  * Create a new user
  */
@@ -44,8 +55,11 @@ export const createUser = async (req: Request, res: Response) => {
     return res.status(400).json({ message: 'Username is required' });
   }
   
+  if(UserService.getUserByUsername(username)) {
+    return res.status(409).json({ message: 'Username already exists' });
+  }
   try {
-    const user = await UserService.createUser(username);
+    const user = await UserService.createUser(username);    
     return res.status(201).json(user);
   } catch (error) {
     if (isPrismaError(error) && error.code === 'P2002') {

@@ -10,6 +10,16 @@ export const getAllUsers = async () => {
   return await prisma.user.findMany();
 };
 
+
+/** 
+ * Get a user by username
+ */
+export const getUserByUsername = async (username: string) => {
+  return await prisma.user.findUnique({
+    where: { username }
+  });
+};
+
 /**
  * Get a user by ID
  */
