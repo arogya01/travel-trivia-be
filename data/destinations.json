@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "name": "Eiffel Tower",
+    "country": "France",
+    "continent": "Europe",
+    "category": ["Landmark", "Cultural", "Historical"],
+    "clues": [
+      "I was built for a World Fair in the late 19th century",
+      "At the time of my construction, many Parisians thought I was an eyesore",
+      "I was the tallest man-made structure in the world for 41 years"
+    ],
+    "facts": [
+      "The Eiffel Tower was built by Gustave Eiffel for the 1889 World's Fair",
+      "It stands 330 meters (1,083 ft) tall and was the tallest structure in the world until 1930",
+      "The tower was originally intended to be a temporary structure",
+      "The tower is repainted every 7 years with 60 tons of paint"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Machu Picchu",
+    "country": "Peru",
+    "continent": "South America",
+    "category": ["Historical", "Cultural", "Natural"],
+    "clues": [
+      "I was built in the 15th century but remained unknown to the outside world until 1911",
+      "I sit nearly 8,000 feet above sea level between two mountain peaks",
+      "My name means 'old peak' or 'old mountain' in the Quechua language"
+    ],
+    "facts": [
+      "Machu Picchu was built around 1450 CE at the height of the Inca Empire",
+      "It was abandoned just over 100 years later, in 1572, as a result of the Spanish Conquest",
+      "It was declared a UNESCO World Heritage Site in 1983",
+      "The site is made up of more than 150 buildings ranging from baths and houses to temples and sanctuaries"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Great Barrier Reef",
+    "country": "Australia",
+    "continent": "Oceania",
+    "category": ["Natural", "Marine"],
+    "clues": [
+      "I can be seen from space and am the world's largest living structure",
+      "I'm home to more than 1,500 species of fish",
+      "I'm composed of billions of tiny organisms"
+    ],
+    "facts": [
+      "The Great Barrier Reef is the world's largest coral reef system",
+      "It is composed of over 2,900 individual reefs and 900 islands",
+      "It supports a wide diversity of life and was selected as a World Heritage Site in 1981",
+      "The reef is facing numerous threats including climate change, pollution, and overfishing"
+    ]
+  }
+] 
