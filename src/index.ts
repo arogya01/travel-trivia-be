@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
-import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
 import { IDestination } from './types/destination.types';
@@ -20,11 +19,6 @@ const app = express();
 
 // Initialize Prisma client
 export const prisma = new PrismaClient();
-
-// Initialize Supabase client
-const supabaseUrl = process.env.SUPABASE_URL || '';
-const supabaseKey = process.env.SUPABASE_ANON_KEY || '';
-export const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Load destinations from JSON file
 const destinationsFilePath = path.join(__dirname, '..', 'data', 'destinations.json');

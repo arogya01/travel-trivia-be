@@ -36,9 +36,11 @@ export const getUserById = async (req: Request, res: Response) => {
 
 export const getUserByUsername = async (req: Request, res: Response) => {
     try {
-        const { username } = req.params;
-        console.log('username', username);
+        const { username } = req.params;        
         const user = await UserService.getUserByUsername(username);
+        if(!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
         return res.json(user);
     } catch (error) {
         console.error('Error fetching user:', error);
